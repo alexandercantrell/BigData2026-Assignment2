@@ -19,6 +19,7 @@ def main():
     ckpt = ch.load(OUT / f"{args.name}.ckpt")
     tables = load_tables(DATA)
     graph = build_graph(tables,DATA_END,ckpt['features'],ckpt.get('reverse',True))
+    print(f"graph at {DATA_END}: {graph.num_nodes:,} nodes, {graph.num_edges:,} edges")
     model = Model(graph,ckpt['hidden'],ckpt['layers'],len(TARGETS),ckpt.get('aggr','all'))
     model.load_state_dict(ckpt["model"])
     model.eval()
