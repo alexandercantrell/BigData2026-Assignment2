@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+
+raw/
+data/
+
+outputs/*.csv
+outputs/*.ckpt
+!outputs/model.ckpt
